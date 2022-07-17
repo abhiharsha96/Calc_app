@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="{% static '/hi.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<style>
+  /* CSS Reset & Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans';
+  box-sizing: border-box;
+
+}
+
+::placeholder {
+  color: rgb(221, 221, 221);
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff1e1;
+  transition: 0.8s all;
+}
+
+h1 {
+  margin-bottom: 1.5%;
+  color: #fff;
+  font-weight: normal;
+}
+
+.container {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  padding: 25px;
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  cursor: pointer;
+  width: 70px;
+  background-color: #316879;
+  border: none;
+  outline: none;
+  border-radius: 100px;
+  margin: 0.2em;
+}
+
+.result,
+.second-row,
+.third-row,
+.fourth-row,
+.fifth-row {
+  margin-bottom: 4px;
+}
+
+input[type="text"] {
+  background-color: #316879 ;
+  width: 222.5px;
+}
+input[type="button"]{
+    transition: 0.2s all;
+}
+input[type="button"]:hover {
+  background-color: #7fe7dc;
+  color: #fff;
+}
+
+#clear-button {
+  color: #fff;
+  background-color: #d2601a;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.footer-section{
+  width:22%;
+  display:block;
+  padding:10px 35px;
+  font-family:'Times New Roman'
+}
+.footer-section:last-of-type{
+  width:34%;
+}
+.footer-section a{
+  color:black;
+  display: block;
+  text-decoration: none;
+  padding:4px 0px;
+}
+.footer-bottom{
+  background:#358597 ;
+  width:100%;
+  padding:20px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-bottom a{
+  font-size:14px;
+  margin-left:20px;
+  text-decoration:none;
+}
+footer{
+  font-family: 'Segoe UI';
+  font-weight: bold;
+}
+.main-wrap{
+  width: 100%;
+  background:#358597;
+}
+.last-box{
+  margin-right:20px;
+}
+.social-link{
+  padding-top:25px;
+  text-align: center;
+}
+.social-link a{
+  height:26px;
+  display: inline-block;
+  width:26px;
+  border-radius:20px;
+  margin:5px;
+  background: rgb(224, 222, 222);
+}
+.first-box{
+  margin-left: 20px;
+}
+.footer-section:last-of-type{
+  width:34%;
+}
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+.search{
+  float: left;
+}
+ul{
+  background-color:#358597;
+}
+li{
+  display: inline;
+}
+  </style>
+  <script src="https://kit.fontawesome.com/dfde56456b.js" crossorigin="anonymous"></script>
+ <ul>
+  <br>
+  <h1 style="color:#f4a896"><font size="10px">&emsp;<i class="fa-solid fa-calculator">&nbsp;CALCULATOR</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</font>
+    <a class="btn btn-outline-info" ><strong><i class="fas fa-home"></i>&nbsp;HOME</strong></a>
+    <a class="btn btn-outline-info" ><strong><i class="fa-solid fa-calculator"></i>&nbsp;SCIENTIFIC CALCULATOR</strong> </a>
+    <a class="btn btn-outline-info" ><strong><i class="fa-solid fa-id-badge"></i>&nbsp;PROFILE</strong> </a>
+    <a class="btn btn-outline-info" ><strong><i class="fas fa-address-book"></i>&nbsp;ABOUT US</strong> </a>
+    <a class="btn btn-outline-info" ><strong><i class="fas fa-key"></i>&nbsp;LOGIN</strong></a>
+  <br><br>
+  </h1>
+</ul>
+  <div class="wrapper">
+    <div class="container">
+      <form method="post" action="calculator">
+        {% csrf_token %}
+      <div class="result">
+        <span id="ques">{{values}}</span>
+        <input type="text" name="values" id= "result" placeholder="0" value={{result}}>
+        <input type="button" value="AC"  onclick="result.value=''" id="clear-button">
+      </div>
+      <div class="second-row">
+        <input type="button" value="1" name="1" onclick="insertTextInInputValue(1);"/>
+        <input type="button" value="2" name="2" onclick="insertTextInInputValue(2);"/>
+        <input type="button" value="3" name="3" onclick="insertTextInInputValue(3);"/>
+        <input type="button" value="+" name="+" onclick="insertTextInInputValue('+');"/>
+      </div>
+      <div class="third-row">
+        <input type="button" value="4" name="4" onclick="insertTextInInputValue(4);"/>
+        <input type="button" value="5" name="5" onclick="insertTextInInputValue(5);"/>
+        <input type="button" value="6" name="6" onclick="insertTextInInputValue(6);"/>
+        <input type="button" value="-" name="-" onclick="insertTextInInputValue('-');"/>
+      </div>
+      <div class="fourth-row">
+        <input type="button" value="7" name="7" onclick="insertTextInInputValue(7);"/>
+        <input type="button" value="8" name="8" onclick="insertTextInInputValue(value);"/>
+        <input type="button" value="9" name="9" onclick="insertTextInInputValue(9);"/>
+        <input type="button" value="x" name="x" onclick="insertTextInInputValue('x');"/>
+      </div>
+      <div class="fifth-row">
+        <input type="button" value="/" name="/" onclick="insertTextInInputValue('/');"/>
+        <input type="button" value="0" name="0" onclick="insertTextInInputValue(0);"/>
+        <input type="button" value="." name="." onclick="insertTextInInputValue('.');"/>
+        <input type="submit" value="=" name="="></input>
+      </div>
+        </form>
+    </div>
+  </div>
+  <footer>
+      <div class="main-wrap">
+            <div class="social-link">
+              <a><i class="fa fa-facebook"></i></a>
+              <a><i class="fa fa-instagram"></i></a>
+              <a><i class="fa fa-twitter"></i></a>
+              <a><i class="fa fa-snapchat"></i></a>
+              <a><i class="fa fa-whatsapp"></i></a>
+            </div>
+        <div class="footer-bottom">
+          <div class="first-box">
+            <a href="" style="color: #1b1b1b">Terms & Conditions</a>
+            <a href="" style="color: #1b1b1b">Privacy Policy</a>
+          </div>
+          <div class="last-box">
+            <a href="" style="color: #1b1b1b">&copy; Copyright 2022 CALCULATOR.Inc </a>
+          </div>
+        </div>
+    </footer>
+</body>
+<script>
+  function insertTextInInputValue(buttonValueIs){
+              var inputElementIs = document.getElementById("result");
+              inputElementIs.value =  inputElementIs.value + buttonValueIs;
+              $('#result').val(inputElementIs.value)
+        }
+</script>
+</html>

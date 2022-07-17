@@ -1,0 +1,153 @@
+/* CSS Reset & Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans';
+  box-sizing: border-box;
+
+}
+
+::placeholder {
+  color: rgb(221, 221, 221);
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff1e1;
+  transition: 0.8s all;
+}
+
+h1 {
+  margin-bottom: 1.5%;
+  color: #fff;
+  font-weight: normal;
+}
+
+.container {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  padding: 25px;
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  cursor: pointer;
+  width: 70px;
+  background-color: #316879;
+  border: none;
+  outline: none;
+  border-radius: 100px;
+  margin: 0.2em;
+}
+
+.result,
+.second-row,
+.third-row,
+.fourth-row,
+.fifth-row {
+  margin-bottom: 4px;
+}
+
+input[type="text"] {
+  background-color: #316879 ;
+  width: 222.5px;
+}
+input[type="button"]{
+    transition: 0.2s all;
+}
+input[type="button"]:hover {
+  background-color: #7fe7dc;
+  color: #fff;
+}
+
+#clear-button {
+  color: #fff;
+  background-color: #d2601a;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.footer-section{
+  width:22%;
+  display:block;
+  padding:10px 35px;
+  font-family:'Times New Roman'
+}
+.footer-section:last-of-type{
+  width:34%;
+}
+.footer-section a{
+  color:black;
+  display: block;
+  text-decoration: none;
+  padding:4px 0px;
+}
+.footer-bottom{
+  background:#358597 ;
+  width:100%;
+  padding:20px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-bottom a{
+  font-size:14px;
+  margin-left:20px;
+  text-decoration:none;
+}
+footer{
+  font-family: 'Segoe UI';
+  font-weight: bold;
+}
+.main-wrap{
+  width: 100%;
+  background:#358597;
+}
+.last-box{
+  margin-right:20px;
+}
+.social-link{
+  padding-top:25px;
+  text-align: center;
+}
+.social-link a{
+  height:26px;
+  display: inline-block;
+  width:26px;
+  border-radius:20px;
+  margin:5px;
+  background: rgb(224, 222, 222);
+}
+.first-box{
+  margin-left: 20px;
+}
+.footer-section:last-of-type{
+  width:34%;
+}
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+.search{
+  float: left;
+}
+ul{
+  background-color:#358597;
+}
+li{
+  display: inline;
+}
